@@ -1,0 +1,111 @@
+@media print {
+  #sideMenu,
+  #anchorMenu,
+  .container.search,
+  footer {
+    display: none;
+  }
+  @page {
+    margin: 2cm;
+  }
+  body {
+    font: 13pt Georgia, "Times New Roman", Times, serif;
+    line-height: 1.3;
+    background: #fff !important;
+    color: #000;
+  }
+  h1 {
+    font-size: 24pt;
+  }
+  h2,
+  h3,
+  h4 {
+    font-size: 14pt;
+    margin-top: 25px;
+  }
+  p,
+  strong {
+    page-break-inside: avoid;
+  }
+  #mainContent {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    background-color: #fefefe;
+    padding: 0em;
+    border-radius: none;
+    width: 100%;
+    margin: 0;
+    float: none;
+  }
+  a {
+    page-break-inside: avoid;
+  }
+  a[href^=http]:after {
+    content: " <" attr(href) "> ";
+  }
+  article a[href^="#"]:after {
+    content: "";
+  }
+  a:not(:local-link):after {
+    content: " <" attr(href) "> ";
+  }
+  blockquote {
+    page-break-inside: avoid;
+  }
+  dt {
+    font-weight: bold;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: bold;
+    page-break-after: avoid;
+    page-break-before: avoid;
+  }
+  p {
+    margin: 1em 0;
+    line-height: 1.2;
+    orphans: 3;
+    widows: 3;
+  }
+  img {
+    page-break-inside: avoid;
+    page-break-after: avoid;
+  }
+  pre,
+  code {
+    background: #fff;
+    color: #000;
+    border: 1pt dashed #000;
+    padding: 1em;
+    font-size: 8pt;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  ul,
+  ol,
+  dl {
+    page-break-before: avoid;
+  }
+  ul {
+    list-style-type: square;
+  }
+  .entry iframe,
+  ins {
+    display: none;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    line-height: 0pt !important;
+    white-space: nowrap;
+  }
+  .embed-youtube,
+  .embed-responsive {
+    position: absolute;
+    height: 0;
+    overflow: hidden;
+  }
+}

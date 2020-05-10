@@ -1,0 +1,79 @@
+$card-color: $text !default
+$card-background-color: $scheme-main !default
+$card-shadow: 0 0.5em 1em -0.125em rgba($scheme-invert, 0.1), 0 0px 0 1px rgba($scheme-invert, 0.02) !default
+
+$card-hdr-background-color: transparent !default
+$card-hdr-color: $text-strong !default
+$card-hdr-padding: 0.75rem 1rem !default
+$card-hdr-shadow: 0 0.125em 0.25em rgba($scheme-invert, 0.1) !default
+$card-hdr-weight: $weight-bold !default
+
+$card-content-background-color: transparent !default
+$card-content-padding: 1.5rem !default
+
+$card-ftr-background-color: transparent !default
+$card-ftr-border-top: 1px solid $border-light !default
+$card-ftr-padding: 0.75rem !default
+
+$card-media-margin: $block-spacing !default
+
+.card
+  background-color: $card-background-color
+  box-shadow: $card-shadow
+  color: $card-color
+  max-width: 100%
+  position: relative
+
+.card-hdr
+  background-color: $card-hdr-background-color
+  align-items: stretch
+  box-shadow: $card-hdr-shadow
+  display: flex
+
+.card-hdr-title
+  align-items: center
+  color: $card-hdr-color
+  display: flex
+  flex-grow: 1
+  font-weight: $card-hdr-weight
+  padding: $card-hdr-padding
+  &.is-centered
+    justify-content: center
+
+.card-hdr-icon
+  align-items: center
+  cursor: pointer
+  display: flex
+  justify-content: center
+  padding: $card-hdr-padding
+
+.card-img
+  display: block
+  position: relative
+
+.card-cnt
+  background-color: $card-content-background-color
+  padding: $card-content-padding
+
+.card-ftr
+  background-color: $card-ftr-background-color
+  border-top: $card-ftr-border-top
+  align-items: stretch
+  display: flex
+
+.card-ftr-item
+  align-items: center
+  display: flex
+  flex-basis: 0
+  flex-grow: 1
+  flex-shrink: 0
+  justify-content: center
+  padding: $card-ftr-padding
+  &:not(:last-child)
+    border-right: $card-ftr-border-top
+
+// Combinations
+
+.card
+  .media:not(:last-child)
+    margin-bottom: $card-media-margin

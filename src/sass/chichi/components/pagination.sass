@@ -1,0 +1,150 @@
+$pg-color: $text-strong !default
+$pg-border-color: $border !default
+$pg-margin: -0.25rem !default
+$pg-min-width: $control-height !default
+
+$pg-item-font-size: 1em !default
+$pg-item-margin: 0.25rem !default
+$pg-item-padding-left: 0.5em !default
+$pg-item-padding-right: 0.5em !default
+
+$pg-hover-color: $link-hover !default
+$pg-hover-border-color: $link-hover-border !default
+
+$pg-focus-color: $link-focus !default
+$pg-focus-border-color: $link-focus-border !default
+
+$pg-active-color: $link-active !default
+$pg-active-border-color: $link-active-border !default
+
+$pg-disabled-color: $text-light !default
+$pg-disabled-background-color: $border !default
+$pg-disabled-border-color: $border !default
+
+$pg-current-color: $link-invert !default
+$pg-current-background-color: $link !default
+$pg-current-border-color: $link !default
+
+$pg-ellipsis-color: $grey-light !default
+
+$pg-shadow-inset: inset 0 1px 2px rgba($scheme-invert, 0.2)
+
+.pg
+  @extend %block
+  font-size: $size-normal
+  margin: $pg-margin
+  // Sizes
+  &.sm
+    font-size: $size-sm
+  &.md
+    font-size: $size-md
+  &.lg
+    font-size: $size-lg
+  &.rounded
+    .pg-prev,
+    .pg-next
+      padding-left: 1em
+      padding-right: 1em
+      border-radius: $radius-rounded
+    .pg-link
+      border-radius: $radius-rounded
+
+.pg,
+.pg-ls
+  align-items: center
+  display: flex
+  justify-content: center
+  text-align: center
+
+.pg-prev,
+.pg-next,
+.pg-link,
+.pg-ellipsis
+  @extend %control
+  @extend %unselectable
+  font-size: $pg-item-font-size
+  justify-content: center
+  margin: $pg-item-margin
+  padding-left: $pg-item-padding-left
+  padding-right: $pg-item-padding-right
+  text-align: center
+
+.pg-prev,
+.pg-next,
+.pg-link
+  border-color: $pg-border-color
+  color: $pg-color
+  min-width: $pg-min-width
+  &:hover
+    border-color: $pg-hover-border-color
+    color: $pg-hover-color
+  &:focus
+    border-color: $pg-focus-border-color
+  &:active
+    box-shadow: $pg-shadow-inset
+  &[disabled]
+    background-color: $pg-disabled-background-color
+    border-color: $pg-disabled-border-color
+    box-shadow: none
+    color: $pg-disabled-color
+    opacity: 0.5
+
+.pg-prev,
+.pg-next
+  padding-left: 0.75em
+  padding-right: 0.75em
+  white-space: nowrap
+
+.pg-link
+  &.current
+    background-color: $pg-current-background-color
+    border-color: $pg-current-border-color
+    color: $pg-current-color
+
+.pg-ellipsis
+  color: $pg-ellipsis-color
+  pointer-events: none
+
+.pg-ls
+  flex-wrap: wrap
+
++mobile
+  .pg
+    flex-wrap: wrap
+  .pg-prev,
+  .pg-next
+    flex-grow: 1
+    flex-shrink: 1
+  .pg-ls
+    li
+      flex-grow: 1
+      flex-shrink: 1
+
++tablet
+  .pg-ls
+    flex-grow: 1
+    flex-shrink: 1
+    justify-content: flex-start
+    order: 1
+  .pg-prev
+    order: 2
+  .pg-next
+    order: 3
+  .pg
+    justify-content: space-between
+    &.centered
+      .pg-prev
+        order: 1
+      .pg-ls
+        justify-content: center
+        order: 2
+      .pg-next
+        order: 3
+    &.r
+      .pg-prev
+        order: 1
+      .pg-next
+        order: 2
+      .pg-ls
+        justify-content: flex-end
+        order: 3

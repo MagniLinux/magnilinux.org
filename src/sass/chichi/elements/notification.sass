@@ -1,0 +1,43 @@
+$notif-background-color: $background !default
+$notif-code-background-color: $scheme-main !default
+$notif-radius: $radius !default
+$notif-padding: 1.25rem 2.5rem 1.25rem 1.5rem !default
+
+.notif
+  @extend %block
+  background-color: $notif-background-color
+  border-radius: $notif-radius
+  padding: $notif-padding
+  position: relative
+  a:not(.button):not(.dropdown-item)
+    color: currentColor
+    text-decoration: underline
+  strong
+    color: currentColor
+  code,
+  pre
+    background: $notif-code-background-color
+  pre code
+    background: transparent
+  & > .delete
+    position: absolute
+    right: 0.5rem
+    top: 0.5rem
+  .title,
+  .subtitle,
+  .content
+    color: currentColor
+  // Colors
+  @each $name, $pair in $colors
+    $color: nth($pair, 1)
+    $color-invert: nth($pair, 2)
+    &.#{$name}
+      background-color: $color
+      color: $color-invert
+      // If light and dark colors are provided
+      @if length($pair) >= 4
+        $color-light: nth($pair, 3)
+        $color-dark: nth($pair, 4)
+        &.light
+          background-color: $color-light
+          color: $color-dark

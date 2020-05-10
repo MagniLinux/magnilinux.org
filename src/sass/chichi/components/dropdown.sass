@@ -1,0 +1,81 @@
+$dropd-menu-min-width: 12rem !default
+
+$dropd-cnt-background-color: $scheme-main !default
+$dropd-cnt-arrow: $link !default
+$dropd-cnt-offset: 4px !default
+$dropd-cnt-padding-bottom: 0.5rem !default
+$dropd-cnt-padding-top: 0.5rem !default
+$dropd-cnt-radius: $radius !default
+$dropd-cnt-shadow: 0 0.5em 1em -0.125em rgba($scheme-invert, 0.1), 0 0px 0 1px rgba($scheme-invert, 0.02) !default
+$dropd-cnt-z: 20 !default
+
+$dropd-item-color: $text !default
+$dropd-item-hover-color: $scheme-invert !default
+$dropd-item-hover-background-color: $background !default
+$dropd-item-active-color: $link-invert !default
+$dropd-item-active-background-color: $link !default
+
+$dropd-divider-background-color: $border-light !default
+
+.dropd
+  display: inline-flex
+  position: relative
+  vertical-align: top
+  &.on,
+  &.hoverable:hover
+    .dropd-menu
+      display: block
+  &.r
+    .dropd-menu
+      left: auto
+      right: 0
+  &.up
+    .dropd-menu
+      bottom: 100%
+      padding-bottom: $dropd-cnt-offset
+      padding-top: initial
+      top: auto
+
+.dropd-menu
+  display: none
+  left: 0
+  min-width: $dropd-menu-min-width
+  padding-top: $dropd-cnt-offset
+  position: absolute
+  top: 100%
+  z-index: $dropd-cnt-z
+
+.dropd-cnt
+  background-color: $dropd-cnt-background-color
+  border-radius: $dropd-cnt-radius
+  box-shadow: $dropd-cnt-shadow
+  padding-bottom: $dropd-cnt-padding-bottom
+  padding-top: $dropd-cnt-padding-top
+
+.dropd-item
+  color: $dropd-item-color
+  display: block
+  font-size: 0.875rem
+  line-height: 1.5
+  padding: 0.375rem 1rem
+  position: relative
+
+a.dropd-item,
+button.dropd-item
+  padding-right: 3rem
+  text-align: left
+  white-space: nowrap
+  width: 100%
+  &:hover
+    background-color: $dropd-item-hover-background-color
+    color: $dropd-item-hover-color
+  &.is-active
+    background-color: $dropd-item-active-background-color
+    color: $dropd-item-active-color
+
+.dropd-divider
+  background-color: $dropd-divider-background-color
+  border: none
+  display: block
+  height: 1px
+  margin: 0.5rem 0

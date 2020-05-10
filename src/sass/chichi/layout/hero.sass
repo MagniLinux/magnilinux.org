@@ -1,0 +1,145 @@
+$hero-body-padding: 3rem 1.5rem !default
+$hero-body-padding-sm: 1.5rem !default
+$hero-body-padding-md: 9rem 1.5rem !default
+$hero-body-padding-lg: 18rem 1.5rem !default
+
+// Main container
+.hero
+  align-items: stretch
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  .nb
+    background: none
+  .tabs
+    ul
+      border-bottom: none
+  // Colors
+  @each $name, $pair in $colors
+    $color: nth($pair, 1)
+    $color-invert: nth($pair, 2)
+    &.#{$name}
+      background-color: $color
+      color: $color-invert
+      a:not(.button):not(.dropdown-item):not(.tag):not(.pagination-link.current),
+      strong
+        color: inherit
+      .title
+        color: $color-invert
+      .subtitle
+        color: bulmaRgba($color-invert, 0.9)
+        a:not(.button),
+        strong
+          color: $color-invert
+      .nb-menu
+        +touch
+          background-color: $color
+      .nb-item,
+      .nb-link
+        color: bulmaRgba($color-invert, 0.7)
+      a.nb-item,
+      .nb-link
+        &:hover,
+        &.on
+          background-color: bulmaDarken($color, 5%)
+          color: $color-invert
+      .tabs
+        a
+          color: $color-invert
+          opacity: 0.9
+          &:hover
+            opacity: 1
+        li
+          &.on a
+            opacity: 1
+        &.boxed,
+        &.toggle
+          a
+            color: $color-invert
+            &:hover
+              background-color: bulmaRgba($scheme-invert, 0.1)
+          li.on a
+            &,
+            &:hover
+              background-color: $color-invert
+              border-color: $color-invert
+              color: $color
+      // Modifiers
+      @if type-of($color) == 'color'
+        &.bold
+          $gradient-top-left: darken(saturate(adjust-hue($color, -10deg), 10%), 10%)
+          $gradient-bottom-right: lighten(saturate(adjust-hue($color, 10deg), 5%), 5%)
+          background-image: linear-gradient(141deg, $gradient-top-left 0%, $color 71%, $gradient-bottom-right 100%)
+          +mobile
+            .nb-menu
+              background-image: linear-gradient(141deg, $gradient-top-left 0%, $color 71%, $gradient-bottom-right 100%)
+  // Sizes
+  &.sm
+    .hero-body
+      padding: $hero-body-padding-sm
+  &.md
+    +tablet
+      .hero-body
+        padding: $hero-body-padding-md
+  &.lg
+    +tablet
+      .hero-body
+        padding: $hero-body-padding-lg
+  &.halfheight,
+  &.fullheight,
+  &.fullheight-with-navbar
+    .hero-body
+      align-items: center
+      display: flex
+      & > .container
+        flex-grow: 1
+        flex-shrink: 1
+  &.halfheight
+    min-height: 50vh
+  &.fullheight
+    min-height: 100vh
+
+// Components
+
+.hero-video
+  @extend %overlay
+  overflow: hidden
+  video
+    left: 50%
+    min-height: 100%
+    min-width: 100%
+    position: absolute
+    top: 50%
+    transform: translate3d(-50%, -50%, 0)
+  // Modifiers
+  &.transparent
+    opacity: 0.3
+  // Responsiveness
+  +mobile
+    display: none
+
+.hero-buttons
+  margin-top: 1.5rem
+  // Responsiveness
+  +mobile
+    .button
+      display: flex
+      &:not(:last-child)
+        margin-bottom: 0.75rem
+  +tablet
+    display: flex
+    justify-content: center
+    .button:not(:last-child)
+      margin-right: 1.5rem
+
+// Containers
+
+.hero-head,
+.hero-foot
+  flex-grow: 0
+  flex-shrink: 0
+
+.hero-body
+  flex-grow: 1
+  flex-shrink: 0
+  padding: $hero-body-padding

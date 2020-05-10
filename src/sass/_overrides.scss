@@ -1,0 +1,244 @@
+body {
+    font-size: 1em;
+    font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 1px;
+}
+
+.btn {
+    transition: all 200ms ease;
+    text-transform: uppercase;
+    font-weight: 700;
+
+    &.on,
+    &.focused,
+    &:active,
+    &:focus {
+        box-shadow: 0 0 0 2px rgba($btn-focus-border-color, 0.25);
+    }
+
+    @each $name,
+    $pair in $colors {
+        $color: nth($pair, 1);
+        $color-invert: nth($pair, 2);
+
+        &.#{$name} {
+
+            &.on,
+            &.focused,
+            &:active,
+            &:focus {
+                border-color: $color;
+                box-shadow: 0 0 0 2px rgba($color, 0.25);
+            }
+        }
+    }
+}
+
+.btn,
+.input,
+.pg-ellipsis,
+.pg-link,
+.pg-next,
+.pg-previous,
+.select,
+.select select,
+.textarea,
+.control.has-icons-left .icon,
+.control.has-icons-right .icon {
+    height: 2.5em;
+}
+
+.input,
+.textarea {
+    transition: all 200ms ease;
+    box-shadow: none;
+}
+
+.progress,
+.tag {
+    border-radius: $radius;
+}
+
+.card {
+    box-shadow: 0 0 0 1px $grey-lighter;
+
+    .card-header {
+        box-shadow: 0 1px 0 0 $grey-lighter;
+    }
+}
+
+.nb {
+
+    border-bottom: 5px $royal solid;
+
+    .nb-link,
+    .nb-item {
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .dropd .nb-item {
+        text-transform: none;
+    }
+
+    strong {
+        color: $white;
+    }
+
+    @include touch {
+        .nb-menu {
+            background-color: $primary;
+            border-radius: $radius;
+        }
+    }
+}
+
+.hero {
+    .nb {
+        background-color: $nb-background-color;
+    }
+
+    @each $name,
+    $pair in $colors {
+        $color: nth($pair, 1);
+        $color-invert: nth($pair, 2);
+
+        &.#{$name} {
+            .nb {
+                background-color: $color;
+            }
+        }
+    }
+}
+
+.notification {
+
+    @each $name,
+    $pair in $colors {
+        $color: nth($pair, 1);
+        $color-invert: nth($pair, 2);
+
+        &.#{$name} {
+            a:not(.btn) {
+                color: $color-invert;
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+section {
+    padding-bottom: 0px;
+    height: 100%;
+}
+
+body,
+html,
+.footer {
+    background-color: $white-ter;
+}
+
+#mainContent {
+    box-shadow: $box-shadow;
+    background-color: #fefefe;
+    padding: 1em;
+    border-radius: $radius-large;
+    position: relative;
+    opacity: 0.99;
+
+    @include until($desktop) {
+        margin-top: calc(100% / 18);
+    }
+
+    @include from($desktop) {
+        margin-top: 7rem;
+    }
+}
+
+.sticky {
+    position: fixed;
+    top: calc(#{$nb-height} + 3rem);
+}
+
+.menu-list li ul {
+    border-left: none;
+}
+
+
+
+.message-header,
+.panel-heading {
+    font-weight: $weight-bold;
+}
+
+.box.category {
+    margin: -1em 0em;
+    margin-top: 3em;
+}
+
+
+table {
+    @extend %block;
+    background-color: $table-background-color;
+    color: $table-color;
+    width: 100%;
+
+    td,
+    th {
+        border: $table-cell-border;
+        border-width: $table-cell-border-width;
+        padding: 0.25em 0.5em;
+        vertical-align: top;
+        white-space: nowrap;
+        width: 1%;
+        text-align: center !important;
+    }
+
+    th {
+        color: $table-cell-heading-color;
+    }
+
+    thead {
+        background-color: $table-head-background-color;
+        border-radius: $radius-large !important;
+        cursor: pointer;
+
+        td,
+        th {
+            border-width: $table-head-cell-border-width;
+            color: $table-head-cell-color;
+            padding: 1em !important;
+        }
+    }
+
+    tbody {
+        background-color: $table-body-background-color;
+
+        tr {
+            &:hover {
+                background-color: $table-row-hover-background-color;
+            }
+            
+            strong {
+                color: $white-ish;
+            }
+
+            code {
+                background-color: $white-ish;
+            }
+            
+            td {
+                white-space: unset !important;
+                overflow-wrap: unset !important;
+            }
+
+            &:last-child {
+                td,
+                th {
+                    border-bottom-width: 0;
+                }
+            }
+        }
+    }
+}

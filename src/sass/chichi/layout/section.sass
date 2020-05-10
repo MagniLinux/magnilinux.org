@@ -1,0 +1,13 @@
+$section-padding: 3rem 1.5rem !default
+$section-padding-md: 9rem 1.5rem !default
+$section-padding-lg: 18rem 1.5rem !default
+
+.section
+  padding: $section-padding
+  // Responsiveness
+  +desktop
+    // Sizes
+    &.md
+      padding: $section-padding-md
+    &.lg
+      padding: $section-padding-lg

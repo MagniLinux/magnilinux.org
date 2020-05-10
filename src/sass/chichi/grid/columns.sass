@@ -1,0 +1,624 @@
+$cGap: 0.75rem !default
+
+.col
+  display: block
+  flex-basis: 0
+  flex-grow: 1
+  flex-shrink: 1
+  padding: $cGap
+  .cols.mobile > &.narrow
+    flex: none
+  .cols.mobile > &.full
+    flex: none
+    width: 100%
+  .cols.mobile > &.three-quarters
+    flex: none
+    width: 75%
+  .cols.mobile > &.two-thirds
+    flex: none
+    width: 66.6666%
+  .cols.mobile > &.half
+    flex: none
+    width: 50%
+  .cols.mobile > &.one-third
+    flex: none
+    width: 33.3333%
+  .cols.mobile > &.one-quarter
+    flex: none
+    width: 25%
+  .cols.mobile > &.one-fifth
+    flex: none
+    width: 20%
+  .cols.mobile > &.two-fifths
+    flex: none
+    width: 40%
+  .cols.mobile > &.three-fifths
+    flex: none
+    width: 60%
+  .cols.mobile > &.four-fifths
+    flex: none
+    width: 80%
+  .cols.mobile > &.offset-three-quarters
+    margin-left: 75%
+  .cols.mobile > &.offset-two-thirds
+    margin-left: 66.6666%
+  .cols.mobile > &.offset-half
+    margin-left: 50%
+  .cols.mobile > &.offset-one-third
+    margin-left: 33.3333%
+  .cols.mobile > &.offset-one-quarter
+    margin-left: 25%
+  .cols.mobile > &.offset-one-fifth
+    margin-left: 20%
+  .cols.mobile > &.offset-two-fifths
+    margin-left: 40%
+  .cols.mobile > &.offset-three-fifths
+    margin-left: 60%
+  .cols.mobile > &.offset-four-fifths
+    margin-left: 80%
+  @for $i from 0 through 12
+    .cols.mobile > &.#{$i}
+      flex: none
+      width: percentage($i / 12)
+    .cols.mobile > &.offset-#{$i}
+      margin-left: percentage($i / 12)
+  +mobile
+    &.narrow-mobile
+      flex: none
+    &.full-mobile
+      flex: none
+      width: 100%
+    &.three-quarters-mobile
+      flex: none
+      width: 75%
+    &.two-thirds-mobile
+      flex: none
+      width: 66.6666%
+    &.half-mobile
+      flex: none
+      width: 50%
+    &.one-third-mobile
+      flex: none
+      width: 33.3333%
+    &.one-quarter-mobile
+      flex: none
+      width: 25%
+    &.one-fifth-mobile
+      flex: none
+      width: 20%
+    &.two-fifths-mobile
+      flex: none
+      width: 40%
+    &.three-fifths-mobile
+      flex: none
+      width: 60%
+    &.four-fifths-mobile
+      flex: none
+      width: 80%
+    &.offset-three-quarters-mobile
+      margin-left: 75%
+    &.offset-two-thirds-mobile
+      margin-left: 66.6666%
+    &.offset-half-mobile
+      margin-left: 50%
+    &.offset-one-third-mobile
+      margin-left: 33.3333%
+    &.offset-one-quarter-mobile
+      margin-left: 25%
+    &.offset-one-fifth-mobile
+      margin-left: 20%
+    &.offset-two-fifths-mobile
+      margin-left: 40%
+    &.offset-three-fifths-mobile
+      margin-left: 60%
+    &.offset-four-fifths-mobile
+      margin-left: 80%
+    @for $i from 0 through 12
+      &.#{$i}-mobile
+        flex: none
+        width: percentage($i / 12)
+      &.offset-#{$i}-mobile
+        margin-left: percentage($i / 12)
+  +tablet
+    &.narrow,
+    &.narrow-tablet
+      flex: none
+    &.full,
+    &.full-tablet
+      flex: none
+      width: 100%
+    &.three-quarters,
+    &.three-quarters-tablet
+      flex: none
+      width: 75%
+    &.two-thirds,
+    &.two-thirds-tablet
+      flex: none
+      width: 66.6666%
+    &.half,
+    &.half-tablet
+      flex: none
+      width: 50%
+    &.one-third,
+    &.one-third-tablet
+      flex: none
+      width: 33.3333%
+    &.one-quarter,
+    &.one-quarter-tablet
+      flex: none
+      width: 25%
+    &.one-fifth,
+    &.one-fifth-tablet
+      flex: none
+      width: 20%
+    &.two-fifths,
+    &.two-fifths-tablet
+      flex: none
+      width: 40%
+    &.three-fifths,
+    &.three-fifths-tablet
+      flex: none
+      width: 60%
+    &.four-fifths,
+    &.four-fifths-tablet
+      flex: none
+      width: 80%
+    &.offset-three-quarters,
+    &.offset-three-quarters-tablet
+      margin-left: 75%
+    &.offset-two-thirds,
+    &.offset-two-thirds-tablet
+      margin-left: 66.6666%
+    &.offset-half,
+    &.offset-half-tablet
+      margin-left: 50%
+    &.offset-one-third,
+    &.offset-one-third-tablet
+      margin-left: 33.3333%
+    &.offset-one-quarter,
+    &.offset-one-quarter-tablet
+      margin-left: 25%
+    &.offset-one-fifth,
+    &.offset-one-fifth-tablet
+      margin-left: 20%
+    &.offset-two-fifths,
+    &.offset-two-fifths-tablet
+      margin-left: 40%
+    &.offset-three-fifths,
+    &.offset-three-fifths-tablet
+      margin-left: 60%
+    &.offset-four-fifths,
+    &.offset-four-fifths-tablet
+      margin-left: 80%
+    @for $i from 0 through 12
+      &.#{$i},
+      &.#{$i}-tablet
+        flex: none
+        width: percentage($i / 12)
+      &.offset-#{$i},
+      &.offset-#{$i}-tablet
+        margin-left: percentage($i / 12)
+  +touch
+    &.narrow-touch
+      flex: none
+    &.full-touch
+      flex: none
+      width: 100%
+    &.three-quarters-touch
+      flex: none
+      width: 75%
+    &.two-thirds-touch
+      flex: none
+      width: 66.6666%
+    &.half-touch
+      flex: none
+      width: 50%
+    &.one-third-touch
+      flex: none
+      width: 33.3333%
+    &.one-quarter-touch
+      flex: none
+      width: 25%
+    &.one-fifth-touch
+      flex: none
+      width: 20%
+    &.two-fifths-touch
+      flex: none
+      width: 40%
+    &.three-fifths-touch
+      flex: none
+      width: 60%
+    &.four-fifths-touch
+      flex: none
+      width: 80%
+    &.offset-three-quarters-touch
+      margin-left: 75%
+    &.offset-two-thirds-touch
+      margin-left: 66.6666%
+    &.offset-half-touch
+      margin-left: 50%
+    &.offset-one-third-touch
+      margin-left: 33.3333%
+    &.offset-one-quarter-touch
+      margin-left: 25%
+    &.offset-one-fifth-touch
+      margin-left: 20%
+    &.offset-two-fifths-touch
+      margin-left: 40%
+    &.offset-three-fifths-touch
+      margin-left: 60%
+    &.offset-four-fifths-touch
+      margin-left: 80%
+    @for $i from 0 through 12
+      &.#{$i}-touch
+        flex: none
+        width: percentage($i / 12)
+      &.offset-#{$i}-touch
+        margin-left: percentage($i / 12)
+  +desktop
+    &.narrow-desktop
+      flex: none
+    &.full-desktop
+      flex: none
+      width: 100%
+    &.three-quarters-desktop
+      flex: none
+      width: 75%
+    &.two-thirds-desktop
+      flex: none
+      width: 66.6666%
+    &.half-desktop
+      flex: none
+      width: 50%
+    &.one-third-desktop
+      flex: none
+      width: 33.3333%
+    &.one-quarter-desktop
+      flex: none
+      width: 25%
+    &.one-fifth-desktop
+      flex: none
+      width: 20%
+    &.two-fifths-desktop
+      flex: none
+      width: 40%
+    &.three-fifths-desktop
+      flex: none
+      width: 60%
+    &.four-fifths-desktop
+      flex: none
+      width: 80%
+    &.offset-three-quarters-desktop
+      margin-left: 75%
+    &.offset-two-thirds-desktop
+      margin-left: 66.6666%
+    &.offset-half-desktop
+      margin-left: 50%
+    &.offset-one-third-desktop
+      margin-left: 33.3333%
+    &.offset-one-quarter-desktop
+      margin-left: 25%
+    &.offset-one-fifth-desktop
+      margin-left: 20%
+    &.offset-two-fifths-desktop
+      margin-left: 40%
+    &.offset-three-fifths-desktop
+      margin-left: 60%
+    &.offset-four-fifths-desktop
+      margin-left: 80%
+    @for $i from 0 through 12
+      &.#{$i}-desktop
+        flex: none
+        width: percentage($i / 12)
+      &.offset-#{$i}-desktop
+        margin-left: percentage($i / 12)
+  +widescreen
+    &.narrow-widescreen
+      flex: none
+    &.full-widescreen
+      flex: none
+      width: 100%
+    &.three-quarters-widescreen
+      flex: none
+      width: 75%
+    &.two-thirds-widescreen
+      flex: none
+      width: 66.6666%
+    &.half-widescreen
+      flex: none
+      width: 50%
+    &.one-third-widescreen
+      flex: none
+      width: 33.3333%
+    &.one-quarter-widescreen
+      flex: none
+      width: 25%
+    &.one-fifth-widescreen
+      flex: none
+      width: 20%
+    &.two-fifths-widescreen
+      flex: none
+      width: 40%
+    &.three-fifths-widescreen
+      flex: none
+      width: 60%
+    &.four-fifths-widescreen
+      flex: none
+      width: 80%
+    &.offset-three-quarters-widescreen
+      margin-left: 75%
+    &.offset-two-thirds-widescreen
+      margin-left: 66.6666%
+    &.offset-half-widescreen
+      margin-left: 50%
+    &.offset-one-third-widescreen
+      margin-left: 33.3333%
+    &.offset-one-quarter-widescreen
+      margin-left: 25%
+    &.offset-one-fifth-widescreen
+      margin-left: 20%
+    &.offset-two-fifths-widescreen
+      margin-left: 40%
+    &.offset-three-fifths-widescreen
+      margin-left: 60%
+    &.offset-four-fifths-widescreen
+      margin-left: 80%
+    @for $i from 0 through 12
+      &.#{$i}-widescreen
+        flex: none
+        width: percentage($i / 12)
+      &.offset-#{$i}-widescreen
+        margin-left: percentage($i / 12)
+  +fullhd
+    &.narrow-fullhd
+      flex: none
+    &.full-fullhd
+      flex: none
+      width: 100%
+    &.three-quarters-fullhd
+      flex: none
+      width: 75%
+    &.two-thirds-fullhd
+      flex: none
+      width: 66.6666%
+    &.half-fullhd
+      flex: none
+      width: 50%
+    &.one-third-fullhd
+      flex: none
+      width: 33.3333%
+    &.one-quarter-fullhd
+      flex: none
+      width: 25%
+    &.one-fifth-fullhd
+      flex: none
+      width: 20%
+    &.two-fifths-fullhd
+      flex: none
+      width: 40%
+    &.three-fifths-fullhd
+      flex: none
+      width: 60%
+    &.four-fifths-fullhd
+      flex: none
+      width: 80%
+    &.offset-three-quarters-fullhd
+      margin-left: 75%
+    &.offset-two-thirds-fullhd
+      margin-left: 66.6666%
+    &.offset-half-fullhd
+      margin-left: 50%
+    &.offset-one-third-fullhd
+      margin-left: 33.3333%
+    &.offset-one-quarter-fullhd
+      margin-left: 25%
+    &.offset-one-fifth-fullhd
+      margin-left: 20%
+    &.offset-two-fifths-fullhd
+      margin-left: 40%
+    &.offset-three-fifths-fullhd
+      margin-left: 60%
+    &.offset-four-fifths-fullhd
+      margin-left: 80%
+    @for $i from 0 through 12
+      &.#{$i}-fullhd
+        flex: none
+        width: percentage($i / 12)
+      &.offset-#{$i}-fullhd
+        margin-left: percentage($i / 12)
+  +realhd
+    &.narrow-realhd
+      flex: none
+    &.full-realhd
+      flex: none
+      width: 100%
+    &.three-quarters-realhd
+      flex: none
+      width: 75%
+    &.two-thirds-realhd
+      flex: none
+      width: 66.6666%
+    &.half-realhd
+      flex: none
+      width: 50%
+    &.one-third-realhd
+      flex: none
+      width: 33.3333%
+    &.one-quarter-realhd
+      flex: none
+      width: 25%
+    &.one-fifth-realhd
+      flex: none
+      width: 20%
+    &.two-fifths-realhd
+      flex: none
+      width: 40%
+    &.three-fifths-realhd
+      flex: none
+      width: 60%
+    &.four-fifths-realhd
+      flex: none
+      width: 80%
+    &.offset-three-quarters-realhd
+      margin-left: 75%
+    &.offset-two-thirds-realhd
+      margin-left: 66.6666%
+    &.offset-half-realhd
+      margin-left: 50%
+    &.offset-one-third-realhd
+      margin-left: 33.3333%
+    &.offset-one-quarter-realhd
+      margin-left: 25%
+    &.offset-one-fifth-realhd
+      margin-left: 20%
+    &.offset-two-fifths-realhd
+      margin-left: 40%
+    &.offset-three-fifths-realhd
+      margin-left: 60%
+    &.offset-four-fifths-realhd
+      margin-left: 80%
+    @for $i from 0 through 12
+      &.#{$i}-realhd
+        flex: none
+        width: percentage($i / 12)
+      &.offset-#{$i}-realhd
+        margin-left: percentage($i / 12)
+  +qhd
+    &.narrow-qhd
+      flex: none
+    &.full-qhd
+      flex: none
+      width: 100%
+    &.three-quarters-qhd
+      flex: none
+      width: 75%
+    &.two-thirds-qhd
+      flex: none
+      width: 66.6666%
+    &.half-qhd
+      flex: none
+      width: 50%
+    &.one-third-qhd
+      flex: none
+      width: 33.3333%
+    &.one-quarter-qhd
+      flex: none
+      width: 25%
+    &.one-fifth-qhd
+      flex: none
+      width: 20%
+    &.two-fifths-qhd
+      flex: none
+      width: 40%
+    &.three-fifths-qhd
+      flex: none
+      width: 60%
+    &.four-fifths-qhd
+      flex: none
+      width: 80%
+    &.offset-three-quarters-qhd
+      margin-left: 75%
+    &.offset-two-thirds-qhd
+      margin-left: 66.6666%
+    &.offset-half-qhd
+      margin-left: 50%
+    &.offset-one-third-qhd
+      margin-left: 33.3333%
+    &.offset-one-quarter-qhd
+      margin-left: 25%
+    &.offset-one-fifth-qhd
+      margin-left: 20%
+    &.offset-two-fifths-qhd
+      margin-left: 40%
+    &.offset-three-fifths-qhd
+      margin-left: 60%
+    &.offset-four-fifths-qhd
+      margin-left: 80%
+    @for $i from 0 through 12
+      &.#{$i}-qhd
+        flex: none
+        width: percentage($i / 12)
+      &.offset-#{$i}-qhd
+        margin-left: percentage($i / 12)
+
+.cols
+  margin-left: (-$cGap)
+  margin-right: (-$cGap)
+  margin-top: (-$cGap)
+  &:last-child
+    margin-bottom: (-$cGap)
+  &:not(:last-child)
+    margin-bottom: calc(1.5rem - #{$cGap})
+  // Modifiers
+  &.c
+    justify-content: center
+  &.gapless
+    margin-left: 0
+    margin-right: 0
+    margin-top: 0
+    & > .col
+      margin: 0
+      padding: 0 !important
+    &:not(:last-child)
+      margin-bottom: 1.5rem
+    &:last-child
+      margin-bottom: 0
+  &.mobile
+    display: flex
+  &.multiline
+    flex-wrap: wrap
+  &.vcentered
+    align-items: center
+  // Responsiveness
+  +tablet
+    &:not(.desktop)
+      display: flex
+  +desktop
+    // Modifiers
+    &.desktop
+      display: flex
+
+@if $variable-columns
+  .cols.variable
+    --columnGap: 0.75rem
+    margin-left: calc(-1 * var(--columnGap))
+    margin-right: calc(-1 * var(--columnGap))
+    .col
+      padding-left: var(--columnGap)
+      padding-right: var(--columnGap)
+    @for $i from 0 through 8
+      &.#{$i}
+        --columnGap: #{$i * 0.25rem}
+      +mobile
+        &.#{$i}-mobile
+          --columnGap: #{$i * 0.25rem}
+      +tablet
+        &.#{$i}-tablet
+          --columnGap: #{$i * 0.25rem}
+      +tablet-only
+        &.#{$i}-tablet-only
+          --columnGap: #{$i * 0.25rem}
+      +touch
+        &.#{$i}-touch
+          --columnGap: #{$i * 0.25rem}
+      +desktop
+        &.#{$i}-desktop
+          --columnGap: #{$i * 0.25rem}
+      +desktop-only
+        &.#{$i}-desktop-only
+          --columnGap: #{$i * 0.25rem}
+      +widescreen
+        &.#{$i}-widescreen
+          --columnGap: #{$i * 0.25rem}
+      +widescreen-only
+        &.#{$i}-widescreen-only
+          --columnGap: #{$i * 0.25rem}
+      +fullhd
+        &.#{$i}-fullhd
+          --columnGap: #{$i * 0.25rem}
+      +realhd
+        &.#{$i}-fullhd
+          --columnGap: #{$i * 0.25rem}
+      +qhd
+        &.#{$i}-fullhd
+          --columnGap: #{$i * 0.25rem}

@@ -1,0 +1,39 @@
+$ls-background-color: $scheme-main !default
+$ls-shadow: 0 2px 3px rgba($scheme-invert, 0.1), 0 0 0 1px rgba($scheme-invert, 0.1) !default
+$ls-radius: $radius !default
+
+$ls-item-border: 1px solid $border !default
+$ls-item-color: $text !default
+$ls-item-active-background-color: $link !default
+$ls-item-active-color: $link-invert !default
+$ls-item-hover-background-color: $background !default
+
+.ls
+  @extend %block
+  background-color: $ls-background-color
+  border-radius: $ls-radius
+  box-shadow: $ls-shadow
+  // &.is-hoverable > .ls-item:hover:not(.is-active)
+  //   background-color: $ls-item-hover-background-color
+  //   cursor: pointer
+
+.ls-item
+  display: block
+  padding: 0.5em 1em
+  &:not(a)
+    color: $ls-item-color
+  &:first-child
+    border-top-left-radius: $ls-radius
+    border-top-right-radius: $ls-radius
+  &:last-child
+    border-bottom-left-radius: $ls-radius
+    border-bottom-right-radius: $ls-radius
+  &:not(:last-child)
+    border-bottom: $ls-item-border
+  &.is-active
+    background-color: $ls-item-active-background-color
+    color: $ls-item-active-color
+
+a.ls-item
+  background-color: $ls-item-hover-background-color
+  cursor: pointer

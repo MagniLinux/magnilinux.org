@@ -1,0 +1,57 @@
+$menu-item-color: $text !default
+$menu-item-radius: $radius-sm !default
+$menu-item-hover-color: $text-strong !default
+$menu-item-hover-background-color: $background !default
+$menu-item-active-color: $link-invert !default
+$menu-item-active-background-color: $link !default
+
+$menu-ls-border-left: 1px solid $border !default
+$menu-ls-line-height: 1.25 !default
+$menu-ls-link-padding: 0.5em 0.75em !default
+$menu-nested-ls-margin: 0.75em !default
+$menu-nested-ls-padding-left: 0.75em !default
+
+$menu-lbl-color: $text-light !default
+$menu-lbl-font-size: 0.75em !default
+$menu-lbl-letter-spacing: 0.1em !default
+$menu-lbl-spacing: 1em !default
+
+.menu
+  font-size: $size-normal
+  // Sizes
+  &.is-sm
+    font-size: $size-sm
+  &.is-md
+    font-size: $size-md
+  &.is-lg
+    font-size: $size-lg
+
+.menu-ls
+  line-height: $menu-ls-line-height
+  a
+    border-radius: $menu-item-radius
+    color: $menu-item-color
+    display: block
+    padding: $menu-ls-link-padding
+    &:hover
+      background-color: $menu-item-hover-background-color
+      color: $menu-item-hover-color
+    // Modifiers
+    &.is-active
+      background-color: $menu-item-active-background-color
+      color: $menu-item-active-color
+  li
+    ul
+      border-left: $menu-ls-border-left
+      margin: $menu-nested-ls-margin
+      padding-left: $menu-nested-ls-padding-left
+
+.menu-lbl
+  color: $menu-lbl-color
+  font-size: $menu-lbl-font-size
+  letter-spacing: $menu-lbl-letter-spacing
+  text-transform: uppercase
+  &:not(:first-child)
+    margin-top: $menu-lbl-spacing
+  &:not(:last-child)
+    margin-bottom: $menu-lbl-spacing

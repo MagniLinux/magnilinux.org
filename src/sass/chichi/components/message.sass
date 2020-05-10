@@ -1,0 +1,99 @@
+$msg-background-color: $background !default
+$msg-radius: $radius !default
+
+$msg-hdr-background-color: $text !default
+$msg-hdr-color: $text-invert !default
+$msg-hdr-weight: $weight-bold !default
+$msg-hdr-padding: 0.75em 1em !default
+$msg-hdr-radius: $radius !default
+
+$msg-body-border-color: $border !default
+$msg-body-border-width: 0 0 0 4px !default
+$msg-body-color: $text !default
+$msg-body-padding: 1.25em 1.5em !default
+$msg-body-radius: $radius !default
+
+$msg-body-pre-background-color: $scheme-main !default
+$msg-body-pre-code-background-color: transparent !default
+
+$msg-hdr-body-border-width: 0 !default
+$msg-colors: $colors !default
+
+.msg
+  @extend %block
+  background-color: $msg-background-color
+  border-radius: $msg-radius
+  font-size: $size-normal
+  strong
+    color: currentColor
+  a:not(.button):not(.tag):not(.dropdown-item)
+    color: currentColor
+    text-decoration: underline
+  // Sizes
+  &.sm
+    font-size: $size-sm
+  &.md
+    font-size: $size-md
+  &.lg
+    font-size: $size-lg
+  // Colors
+  @each $name, $components in $msg-colors
+    $color: nth($components, 1)
+    $color-invert: nth($components, 2)
+    $color-light: null
+    $color-dark: null
+
+    @if length($components) >= 3
+      $color-light: nth($components, 3)
+      @if length($components) >= 4
+        $color-dark: nth($components, 4)
+      @else
+        $color-luminance: colorLuminance($color)
+        $darken-percentage: $color-luminance * 70%
+        $desaturate-percentage: $color-luminance * 30%
+        $color-dark: desaturate(darken($color, $darken-percentage), $desaturate-percentage)
+    @else
+      $color-lightning: max((100% - lightness($color)) - 2%, 0%)
+      $color-light: lighten($color, $color-lightning)
+
+    &.is-#{$name}
+      background-color: $color-light
+      .msg-hdr
+        background-color: $color
+        color: $color-invert
+      .msg-body
+        border-color: $color
+        color: $color-dark
+
+.msg-hdr
+  align-items: center
+  background-color: $msg-hdr-background-color
+  border-radius: $msg-hdr-radius $msg-hdr-radius 0 0
+  color: $msg-hdr-color
+  display: flex
+  font-weight: $msg-hdr-weight
+  justify-content: space-between
+  line-height: 1.25
+  padding: $msg-hdr-padding
+  position: relative
+  .delete
+    flex-grow: 0
+    flex-shrink: 0
+    margin-left: 0.75em
+  & + .msg-body
+    border-width: $msg-hdr-body-border-width
+    border-top-left-radius: 0
+    border-top-right-radius: 0
+
+.msg-body
+  border-color: $msg-body-border-color
+  border-radius: $msg-body-radius
+  border-style: solid
+  border-width: $msg-body-border-width
+  color: $msg-body-color
+  padding: $msg-body-padding
+  code,
+  pre
+    background-color: $msg-body-pre-background-color
+  pre code
+    background-color: $msg-body-pre-code-background-color

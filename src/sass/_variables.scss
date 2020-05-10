@@ -1,0 +1,72 @@
+$grey: #7f888f;
+$grey-light:   lighten($grey, 10%);
+$grey-lighter: lighten($grey, 20%);
+
+$grey-3: #333333;
+
+$green:        #4BBF73;
+$blue:         #1F9BCF;
+$red:          #d9534f;
+$royal:        #7851a9;
+$gPurp:        #4f4473;
+$spacePurp:    #5d4d7a;
+$white-ter:    #ecf0f1;
+$white-ish:    #B2B2B2;
+$white-off:    #64606b;
+$white-on:     #cbc1d5;
+
+$primary: #121212 !default;
+$link: $grey;
+
+$family-sans-serif: "Fira Sans", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+$family-code: "JetBrains Mono", Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+$body-size: 14px;
+
+$radius-small: 4px;
+$radius: 6px;
+$radius-large: 8px;
+
+$menu-item-active-background-color: $royal;
+
+$nb-height: 5rem;
+$nb-background-color: $primary;
+$nb-item-color: $grey;
+$nb-item-hover-color: #fff;
+$nb-item-active-color: #fff;
+$nb-item-hover-background-color: transparent;
+$nb-item-active-background-color: transparent;
+$nb-dropdown-arrow: #fff;
+$nb-dropdown-background-color: $primary;
+$nb-dropdown-border-top: 1px solid lighten($primary, 10);
+$nb-divider-background-color: lighten($primary, 10);
+$nb-dropdown-item-active-color: #fff;
+$nb-dropdown-item-hover-color: $grey-lighter;
+$nb-dropdown-item-hover-background-color: transparent;
+$nb-dropdown-item-active-background-color: transparent;
+
+$btn-color: $white-ter;
+$btn-hover-color: darken($white-ter, 25); // primary-dark
+$btn-focus: darken($white-ter, 25); // primary-dark
+$btn-active-color: darken($white-ter, 25); // primary-dark
+
+$btn-background-color: $royal;
+
+$link: $royal;
+$link-visited: $gPurp;
+
+$box-shadow: 0 1px 2px  #eaeaea inset;
+$box-padding: 1em;
+$box-background-color: $white-ter;
+
+$table-head-background-color: #292B2E;
+$table-head-cell-color: $spacePurp !important;
+$table-background-color:  #212026;
+$table-color: #686868;
+$table-cell-border-width: 0 !important;
+$table-cell-border: 0;
+$table-head-cell-border-width: 0;
+$table-row-hover-background-color: $gPurp;
+
+$gap: 21px;
+
+$input-radius: 0 0 0 $radius-large;

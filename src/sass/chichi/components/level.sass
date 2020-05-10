@@ -1,0 +1,77 @@
+$level-item-spacing: ($block-spacing / 2) !default
+
+.lvl
+  @extend %block
+  align-items: center
+  justify-content: space-between
+  code
+    border-radius: $radius
+  img
+    display: inline-block
+    vertical-align: top
+  // Modifiers
+  &.mobile
+    display: flex
+    .lvl-l,
+    .lvl-r
+      display: flex
+    .lvl-l + .lvl-r
+      margin-top: 0
+    .lvl-item
+      &:not(:last-child)
+        margin-bottom: 0
+        margin-right: $level-item-spacing
+      &:not(.is-narrow)
+        flex-grow: 1
+  // Responsiveness
+  +tablet
+    display: flex
+    & > .lvl-item
+      &:not(.is-narrow)
+        flex-grow: 1
+
+.lvl-item
+  align-items: center
+  display: flex
+  flex-basis: auto
+  flex-grow: 0
+  flex-shrink: 0
+  justify-content: center
+  .title,
+  .subtitle
+    margin-bottom: 0
+  // Responsiveness
+  +mobile
+    &:not(:last-child)
+      margin-bottom: $level-item-spacing
+
+.lvl-l,
+.lvl-r
+  flex-basis: auto
+  flex-grow: 0
+  flex-shrink: 0
+  .lvl-item
+    // Modifiers
+    &.flexible
+      flex-grow: 1
+    // Responsiveness
+    +tablet
+      &:not(:last-child)
+        margin-right: $level-item-spacing
+
+.lvl-l
+  align-items: center
+  justify-content: flex-start
+  // Responsiveness
+  +mobile
+    & + .lvl-r
+      margin-top: 1.5rem
+  +tablet
+    display: flex
+
+.lvl-r
+  align-items: center
+  justify-content: flex-end
+  // Responsiveness
+  +tablet
+    display: flex

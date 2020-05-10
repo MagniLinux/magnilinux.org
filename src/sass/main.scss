@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+@import "typography";
+
+@import "variables";
+@import "chichi/utilities/_all";
+@import "chichi/base/_all";
+
+// chichi Elements
+@import "chichi/elements/_all.sass";
+
+// chichi Form
+@import "chichi/form/_all.sass";
+
+// chichi Components
+@import "chichi/components/_all.sass";
+
+// chichi Grid
+@import "chichi/grid/_all.sass";
+
+// chichi Layout
+@import "chichi/layout/_all.sass";
+
+@import "overrides";
+@import "print";
+
+html {
+    scroll-behavior: smooth;
+    font-variant-ligatures: normal;
+}

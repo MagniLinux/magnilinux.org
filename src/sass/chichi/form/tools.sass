@@ -1,0 +1,205 @@
+$label-color: $text-strong !default
+$label-weight: $weight-bold !default
+
+$help-size: $size-sm !default
+
+.lbl
+  color: $label-color
+  display: block
+  font-size: $size-normal
+  font-weight: $label-weight
+  &:not(:last-child)
+    margin-bottom: 0.5em
+  // Sizes
+  &.sm
+    font-size: $size-sm
+  &.md
+    font-size: $size-md
+  &.lg
+    font-size: $size-lg
+
+.help
+  display: block
+  font-size: $help-size
+  margin-top: 0.25rem
+  @each $name, $pair in $colors
+    $color: nth($pair, 1)
+    &.#{$name}
+      color: $color
+
+// Containers
+
+.field
+  &:not(:last-child)
+    margin-bottom: 0.75rem
+  // Modifiers
+  &.addons
+    display: flex
+    justify-content: flex-start
+    .control
+      &:not(:last-child)
+        margin-right: -1px
+      &:not(:first-child):not(:last-child)
+        .button,
+        .input,
+        .select select
+          border-radius: 0
+      &:first-child:not(:only-child)
+        .button,
+        .input,
+        .select select
+          border-bottom-right-radius: 0
+          border-top-right-radius: 0
+      &:last-child:not(:only-child)
+        .button,
+        .input,
+        .select select
+          border-bottom-left-radius: 0
+          border-top-left-radius: 0
+      .button,
+      .input,
+      .select select
+        &:not([disabled])
+          &:hover,
+          &.hovered
+            z-index: 2
+          &:focus,
+          &.focused,
+          &:active,
+          &.active
+            z-index: 3
+            &:hover
+              z-index: 4
+      &.expanded
+        flex-grow: 1
+        flex-shrink: 1
+    &.addons-c
+      justify-content: center
+    &.addons-r
+      justify-content: flex-end
+    &.addons-fullwidth
+      .control
+        flex-grow: 1
+        flex-shrink: 0
+  &.grouped
+    display: flex
+    justify-content: flex-start
+    & > .control
+      flex-shrink: 0
+      &:not(:last-child)
+        margin-bottom: 0
+        margin-right: 0.75rem
+      &.expanded
+        flex-grow: 1
+        flex-shrink: 1
+    &.grouped-c
+      justify-content: center
+    &.grouped-r
+      justify-content: flex-end
+    &.grouped-multiline
+      flex-wrap: wrap
+      & > .control
+        &:last-child,
+        &:not(:last-child)
+          margin-bottom: 0.75rem
+      &:last-child
+        margin-bottom: -0.75rem
+      &:not(:last-child)
+        margin-bottom: 0
+  &.horizontal
+    +tablet
+      display: flex
+
+.field-label
+  .label
+    font-size: inherit
+  +mobile
+    margin-bottom: 0.5rem
+  +tablet
+    flex-basis: 0
+    flex-grow: 1
+    flex-shrink: 0
+    margin-right: 1.5rem
+    text-align: right
+    &.sm
+      font-size: $size-sm
+      padding-top: 0.375em
+    &.normal
+      padding-top: 0.375em
+    &.md
+      font-size: $size-md
+      padding-top: 0.375em
+    &.lg
+      font-size: $size-lg
+      padding-top: 0.375em
+
+.field-body
+  .field .field
+    margin-bottom: 0
+  +tablet
+    display: flex
+    flex-basis: 0
+    flex-grow: 5
+    flex-shrink: 1
+    .field
+      margin-bottom: 0
+    & > .field
+      flex-shrink: 1
+      &:not(.narrow)
+        flex-grow: 1
+      &:not(:last-child)
+        margin-right: 0.75rem
+
+.control
+  box-sizing: border-box
+  clear: both
+  font-size: $size-normal
+  position: relative
+  text-align: left
+  // Modifiers
+  &.icons-l,
+  &.icons-r
+    .input,
+    .select
+      &:focus
+        & ~ .icon
+          color: $input-icon-active-color
+      &.sm ~ .icon
+        font-size: $size-sm
+      &.md ~ .icon
+        font-size: $size-md
+      &.lg ~ .icon
+        font-size: $size-lg
+    .icon
+      color: $input-icon-color
+      height: $input-height
+      pointer-events: none
+      position: absolute
+      top: 0
+      width: $input-height
+      z-index: 4
+  &.icons-left
+    .input,
+    .select select
+      padding-left: $input-height
+    .icon.l
+      left: 0
+  &.icons-r
+    .input,
+    .select select
+      padding-right: $input-height
+    .icon.r
+      right: 0
+  &.loading
+    &::after
+      @extend %loader
+      position: absolute !important
+      right: 0.625em
+      top: 0.625em
+      z-index: 4
+    &.sm:after
+      font-size: $size-sm
+    &.md:after
+      font-size: $size-md
+    &.lg:after
+      font-size: $size-lg

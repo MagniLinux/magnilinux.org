@@ -1,0 +1,323 @@
+$btn-color: $text-strong !default
+$btn-background-color: $scheme-main !default
+$btn-family: false !default
+
+$btn-border-color: $border !default
+$btn-border-width: $control-border-width !default
+
+$btn-padding-vertical: calc(0.5em - #{$btn-border-width}) !default
+$btn-padding-horizontal: 1em !default
+
+$btn-hover-color: $link-hover !default
+$btn-hover-border-color: $link-hover-border !default
+
+$btn-focus-color: $link-focus !default
+$btn-focus-border-color: $link-focus-border !default
+$btn-focus-box-shadow-size: 0 0 0 0.125em !default
+$btn-focus-box-shadow-color: bulmaRgba($link, 0.25) !default
+
+$btn-active-color: $link-active !default
+$btn-active-border-color: $link-active-border !default
+
+$btn-text-color: $text !default
+$btn-text-decoration: underline !default
+$btn-text-hover-background-color: $background !default
+$btn-text-hover-color: $text-strong !default
+
+$btn-disabled-background-color: $scheme-main !default
+$btn-disabled-border-color: $border !default
+$btn-disabled-shadow: none !default
+$btn-disabled-opacity: 0.5 !default
+
+$btn-static-color: $text-light !default
+$btn-static-background-color: $scheme-main-ter !default
+$btn-static-border-color: $border !default
+
+// The btn sizes use mixins so they can be used at different breakpoints
+=btn-sm
+  border-radius: $radius-sm
+  font-size: $size-sm
+=btn-normal
+  font-size: $size-normal
+=btn-md
+  font-size: $size-md
+=btn-lg
+  font-size: $size-lg
+
+.btn
+  @extend %control
+  @extend %unselectable
+  background-color: $btn-background-color
+  border-color: $btn-border-color
+  border-width: $btn-border-width
+  color: $btn-color
+  cursor: pointer
+  @if $btn-family
+    font-family: $btn-family
+  justify-content: center
+  padding-bottom: $btn-padding-vertical
+  padding-left: $btn-padding-horizontal
+  padding-right: $btn-padding-horizontal
+  padding-top: $btn-padding-vertical
+  text-align: center
+  white-space: nowrap
+  strong
+    color: inherit
+  .icon
+    &,
+    &.sm,
+    &.md,
+    &.lg
+      height: 1.5em
+      width: 1.5em
+    &:first-child:not(:last-child)
+      margin-left: calc(#{-1 / 2 * $btn-padding-horizontal} - #{$btn-border-width})
+      margin-right: $btn-padding-horizontal / 4
+    &:last-child:not(:first-child)
+      margin-left: $btn-padding-horizontal / 4
+      margin-right: calc(#{-1 / 2 * $btn-padding-horizontal} - #{$btn-border-width})
+    &:first-child:last-child
+      margin-left: calc(#{-1 / 2 * $btn-padding-horizontal} - #{$btn-border-width})
+      margin-right: calc(#{-1 / 2 * $btn-padding-horizontal} - #{$btn-border-width})
+  // States
+  &:hover,
+  &.hovered
+    border-color: $btn-hover-border-color
+    color: $btn-hover-color
+  &:focus,
+  &.focused
+    border-color: $btn-focus-border-color
+    color: $btn-focus-color
+    &:not(:active)
+      box-shadow: $btn-focus-box-shadow-size $btn-focus-box-shadow-color
+  &:active,
+  &.on
+    border-color: $btn-active-border-color
+    color: $btn-active-color
+  // Colors
+  &.text
+    background-color: transparent
+    border-color: transparent
+    color: $btn-text-color
+    text-decoration: $btn-text-decoration
+    &:hover,
+    &.hovered,
+    &:focus,
+    &.focused
+      background-color: $btn-text-hover-background-color
+      color: $btn-text-hover-color
+    &:active,
+    &.on
+      background-color: bulmaDarken($btn-text-hover-background-color, 5%)
+      color: $btn-text-hover-color
+    &[disabled],
+    fieldset[disabled] &
+      background-color: transparent
+      border-color: transparent
+      box-shadow: none
+  @each $name, $pair in $colors
+    $color: nth($pair, 1)
+    $color-invert: nth($pair, 2)
+    &.#{$name}
+      background-color: $color
+      border-color: transparent
+      color: $color-invert
+      &:hover,
+      &.hovered
+        background-color: bulmaDarken($color, 2.5%)
+        border-color: transparent
+        color: $color-invert
+      &:focus,
+      &.focused
+        border-color: transparent
+        color: $color-invert
+        &:not(:active)
+          box-shadow: $btn-focus-box-shadow-size bulmaRgba($color, 0.25)
+      &:active,
+      &.on
+        background-color: bulmaDarken($color, 5%)
+        border-color: transparent
+        color: $color-invert
+      &[disabled],
+      fieldset[disabled] &
+        background-color: $color
+        border-color: transparent
+        box-shadow: none
+      &.inverted
+        background-color: $color-invert
+        color: $color
+        &:hover,
+        &.hovered
+          background-color: bulmaDarken($color-invert, 5%)
+        &[disabled],
+        fieldset[disabled] &
+          background-color: $color-invert
+          border-color: transparent
+          box-shadow: none
+          color: $color
+      &.loading
+        &::after
+          border-color: transparent transparent $color-invert $color-invert !important
+      &.outlined
+        background-color: transparent
+        border-color: $color
+        color: $color
+        &:hover,
+        &.hovered,
+        &:focus,
+        &.focused
+          background-color: $color
+          border-color: $color
+          color: $color-invert
+        &.loading
+          &::after
+            border-color: transparent transparent $color $color !important
+          &:hover,
+          &.hovered,
+          &:focus,
+          &.focused
+            &::after
+              border-color: transparent transparent $color-invert $color-invert !important
+        &[disabled],
+        fieldset[disabled] &
+          background-color: transparent
+          border-color: $color
+          box-shadow: none
+          color: $color
+      &.inverted.outlined
+        background-color: transparent
+        border-color: $color-invert
+        color: $color-invert
+        &:hover,
+        &.hovered,
+        &:focus,
+        &.focused
+          background-color: $color-invert
+          color: $color
+        &.loading
+          &:hover,
+          &.hovered,
+          &:focus,
+          &.focused
+            &::after
+              border-color: transparent transparent $color $color !important
+        &[disabled],
+        fieldset[disabled] &
+          background-color: transparent
+          border-color: $color-invert
+          box-shadow: none
+          color: $color-invert
+      // If light and dark colors are provided
+      @if length($pair) >= 4
+        $color-light: nth($pair, 3)
+        $color-dark: nth($pair, 4)
+        &.light
+          background-color: $color-light
+          color: $color-dark
+          &:hover,
+          &.hovered
+            background-color: bulmaDarken($color-light, 2.5%)
+            border-color: transparent
+            color: $color-dark
+          &:active,
+          &.on
+            background-color: bulmaDarken($color-light, 5%)
+            border-color: transparent
+            color: $color-dark
+  // Sizes
+  &.sm
+    +btn-sm
+  &.normal
+    +btn-normal
+  &.md
+    +btn-md
+  &.lg
+    +btn-lg
+  // Modifiers
+  &[disabled],
+  fieldset[disabled] &
+    background-color: $btn-disabled-background-color
+    border-color: $btn-disabled-border-color
+    box-shadow: $btn-disabled-shadow
+    opacity: $btn-disabled-opacity
+  &.fullwidth
+    display: flex
+    width: 100%
+  &.loading
+    color: transparent !important
+    pointer-events: none
+    &::after
+      @extend %loader
+      +c(1em)
+      position: absolute !important
+  &.static
+    background-color: $btn-static-background-color
+    border-color: $btn-static-border-color
+    color: $btn-static-color
+    box-shadow: none
+    pointer-events: none
+  &.rounded
+    border-radius: $radius-rounded
+    padding-left: calc(#{$btn-padding-horizontal} + 0.25em)
+    padding-right: calc(#{$btn-padding-horizontal} + 0.25em)
+
+.btns
+  align-items: center
+  display: flex
+  flex-wrap: wrap
+  justify-content: flex-start
+  .btn
+    margin-bottom: 0.5rem
+    &:not(:last-child):not(.fullwidth)
+      margin-right: 0.5rem
+  &:last-child
+    margin-bottom: -0.5rem
+  &:not(:last-child)
+    margin-bottom: 1rem
+  // Sizes
+  &.sm
+    .btn:not(.normal):not(.md):not(.lg)
+      +btn-sm
+  &.md
+    .btn:not(.sm):not(.normal):not(.lg)
+      +btn-md
+  &.lg
+    .btn:not(.sm):not(.normal):not(.md)
+      +btn-lg
+  &.addons
+    .btn
+      &:not(:first-child)
+        border-bottom-left-radius: 0
+        border-top-left-radius: 0
+      &:not(:last-child)
+        border-bottom-right-radius: 0
+        border-top-right-radius: 0
+        margin-right: -1px
+      &:last-child
+        margin-right: 0
+      &:hover,
+      &.hovered
+        z-index: 2
+      &:focus,
+      &.focused,
+      &:active,
+      &.on,
+      &.selected
+        z-index: 3
+        &:hover
+          z-index: 4
+      &.expanded
+        flex-grow: 1
+        flex-shrink: 1
+  &.c
+    justify-content: center
+    &:not(.addons)
+      .btn:not(.fullwidth)
+        margin-left: 0.25rem
+        margin-right: 0.25rem
+  &.r
+    justify-content: flex-end
+    &:not(.addons)
+      .btn:not(.fullwidth)
+        margin-left: 0.25rem
+        margin-right: 0.25rem
